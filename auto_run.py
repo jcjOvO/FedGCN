@@ -1,5 +1,4 @@
 import os
-
 import yaml
 import torch
 
@@ -26,18 +25,22 @@ if __name__ == '__main__':
     command = config.get("command",'')
     parameters = config.get("parameters",{})
 
-    cmd_list = [command]
+    for i in range(5,6):
+        cmd_list = [command]
 
-    for key, value in parameters.items():
-        if isinstance(value,bool):
-            if value:
-                cmd_list.append(f"-{para_dict[key]}")
+        for key, value in parameters.items():
+            if isinstance(value,bool):
+                if value:
+                    cmd_list.append(f"-{para_dict[key]}")
+            elif key == 'n_trainer':
+                cmd_list.append(f"-{para_dict[key]}=\"{i}\"")
+            else:
+                cmd_list.append(f"-{para_dict[key]}=\"{value}\"")
 
-        else:
-            cmd_list.append(f"-{para_dict[key]}=\"{value}\"")
+        cmd = " ".join(cmd_list)
+        print(cmd)
 
-    cmd = " ".join(cmd_list)
-    print(cmd)
+        torch.cuda.empty_cache()
+        os.system(cmd)
 
-    torch.cuda.empty_cache()
-    os.system(cmd)
+

@@ -313,7 +313,8 @@ if __name__ == "__main__":
 
         # sleep(5)  # wait for print message from remote workers
         filename = (
-            args.dataset
+            "results/"
+            + args.dataset
             + "_"
             + args.fedtype
             + "_"
@@ -335,7 +336,7 @@ if __name__ == "__main__":
 
     # finish experiments
     with open(
-        f"{args.dataset}_{args.fedtype}_{args.num_layers}_layer_{args.num_hops}_hop_iid_beta_{args.iid_beta}_n_trainer_{args.n_trainer}_local_step_{args.local_step}.txt",
+        f"results/{args.dataset}_{args.fedtype}_{args.num_layers}_layer_{args.num_hops}_hop_iid_beta_{args.iid_beta}_n_trainer_{args.n_trainer}_local_step_{args.local_step}.txt",
         "a+",
     ) as a:
         a.write(
