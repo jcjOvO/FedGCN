@@ -10,8 +10,8 @@ import yaml
 from torch.utils.tensorboard import SummaryWriter
 
 print(os.getcwd())
-print(os.listdir())
-print(os.listdir(".."))
+# print(os.listdir())
+# print(os.listdir(".."))
 
 import sys
 
@@ -98,11 +98,11 @@ if __name__ == "__main__":
         num_cpus = 0.1
         num_gpus = 0.0
     elif args.dataset == "ogbn-arxiv":
-        num_cpus = 5.0
-        num_gpus = 0.5
+        num_cpus = 1.0
+        num_gpus = 0.1
     else:
-        num_cpus = 10
-        num_gpus = 1.0
+        num_cpus = 1.0
+        num_gpus = 0.1
 
     # repeat experiments
     average_final_test_loss_repeats = []

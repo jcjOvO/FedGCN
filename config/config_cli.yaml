@@ -1,0 +1,15 @@
+command: D:\CodeConfiguration\anaconda\envs\fedgcn\python.exe src/fedgcn_run.py
+parameters:
+  dataset: cora
+  fedtype: fedgcn
+  global_rounds: 100
+  gpu: true
+  iid_beta: 100.0
+  learning_rate: 0.5
+  local_step: 3
+  logdir: ./runs
+  n_trainer: 5
+  num_hops: 2
+  num_layers: 2
+  repeat_time: 1
+  pruning: false
